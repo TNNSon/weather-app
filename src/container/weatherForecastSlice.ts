@@ -4,7 +4,7 @@ import { RootState } from "../store/store";
 import { fetchCityByText, fetchWeatherCityById } from "./weatherAPI";
 
 export type Toast = {
-  action: string;
+  message: string;
   type: string;
   id: string;
 };
@@ -72,13 +72,18 @@ export const weatherForecastSlice = createSlice({
       })
       .addCase(fetchCityAsync.rejected, (state, action) => {
         state.status = "idle";
-        state.error = { action: "fetchCityAsync", id: uuid(), type: "error" };
+        state.error = {
+          message: "Can't get information of cities",
+          id: uuid(),
+          type: "error",
+        };
       })
       .addCase(fetchWeatherCityAsync.pending, (state) => {
         state.status = "loading";
       })
       .addCase(fetchWeatherCityAsync.fulfilled, (state, action) => {
         // just get 7 day of week for show to user
+        state.status = "idle";
         state.weatherDayList =
           action.payload?.consolidated_weather.length > 7
             ? action.payload?.consolidated_weather.slice(0, 7)
@@ -95,7 +100,7 @@ export const weatherForecastSlice = createSlice({
       .addCase(fetchWeatherCityAsync.rejected, (state, action) => {
         state.status = "idle";
         state.error = {
-          action: "fetchWeatherCityAsync",
+          message: "Can't get information of city weather",
           id: uuid(),
           type: "error",
         };

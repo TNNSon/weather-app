@@ -12,6 +12,7 @@ import "./weatherForecast.css";
 const WeatherForecast: React.FC = () => {
   const cities = useAppSelector(selectCities);
   const loading = useAppSelector(selectLoading);
+
   const dispatch = useAppDispatch();
 
   const handleChange = (value: number) => {

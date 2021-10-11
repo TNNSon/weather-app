@@ -2,7 +2,7 @@ import React from "react";
 import { Condition } from "../../props/types";
 
 type LocationProps = {
-  type?: Condition;
+  type?: Condition | null;
 };
 
 //www.metaweather.com/static/img/weather/sn.svg

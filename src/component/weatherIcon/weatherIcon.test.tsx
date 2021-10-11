@@ -1,58 +1,16 @@
-import React, { Component } from "react";
-import { act } from "react-dom/test-utils";
-import { render, fireEvent, getByTestId } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import WeatherIcon from "./weatherIcon";
 import "@testing-library/jest-dom/extend-expect";
-import { Provider } from "react-redux";
 import configureStore from "redux-mock-store";
-import { shallow, mount, ReactWrapper, ShallowWrapper } from "enzyme";
-import axios from "axios";
-// const spy = jest.spyOn(redux, "useSelector");
-// spy.mockReturnValue({ cities: [] });
 
 let container: any = null;
 const mockStore = configureStore();
-let store: any, rWrapped: ReactWrapper, sWrapped: ShallowWrapper;
+let store: any;
 let initialState = { weatherForecast: { cities: [] } };
-let resultState = {
-  weatherForecast: {
-    cities: [
-      {
-        title: "San Francisco",
-        location_type: "City",
-        woeid: 2487956,
-        latt_long: "37.777119, -122.41964",
-      },
-      {
-        title: "San Diego",
-        location_type: "City",
-        woeid: 2487889,
-        latt_long: "32.715691,-117.161720",
-      },
-      {
-        title: "San Jose",
-        location_type: "City",
-        woeid: 2488042,
-        latt_long: "37.338581,-121.885567",
-      },
-    ],
-  },
-};
 beforeEach(() => {
   // setup a DOM element as a render target
   container = document.createElement("div");
   document.body.appendChild(container);
-  // store = mockStore(resultState);
-  // sWrapped = shallow(
-  //   <Provider store={store}>
-  //     <WeatherIcon type='c'/>
-  //   </Provider>
-  // );
-  // rWrapped = mount(
-  //   <Provider store={store}>
-  //     <WeatherIcon />
-  //   </Provider>
-  // );
 });
 
 afterEach(() => {

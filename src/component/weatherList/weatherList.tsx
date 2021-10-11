@@ -17,7 +17,7 @@ const WeatherList: React.FC = () => {
       {!isEmpty(currentDay) && (
         <div>
           <p className="city-title">
-            Your weather of {currentDay.title} will be:
+            Your weather of <strong>{currentDay.title}</strong> will be:
           </p>
         </div>
       )}

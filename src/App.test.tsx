@@ -5,12 +5,12 @@ import { store } from "./store/store";
 import App from "./App";
 
 test("renders app", () => {
-  const { getByText, getByTestId } = render(
+  const { getByTestId, queryAllByText } = render(
     <Provider store={store}>
       <App />
     </Provider>
   );
 
   expect(getByTestId("searchWeather")).toHaveValue("");
-  expect(getByText("Current day")).toBeInTheDocument();
+  expect(queryAllByText("Your weather of")).toHaveLength(0);
 });

@@ -1,11 +1,17 @@
-import React, { useEffect, useState, useCallback, useRef } from "react";
+import React, {
+  useEffect,
+  useState,
+  useCallback,
+  useRef,
+  useMemo,
+} from "react";
 import { debounce } from "lodash";
 import Suggestion from "./suggestion";
 import { ItemOption } from "../../props/types";
 import "./inputSearch.css";
 
 type Props = {
-  onSearch: Function;
+  onSearch: any;
   onChange: Function;
   data: ItemOption[];
   loading: boolean;
@@ -20,15 +26,24 @@ const InputSearch: React.FC<Props> = ({
   const [textSearch, setTextSearch] = useState<string>("");
   const [showResult, setShowResult] = useState<boolean>(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
+  const handleBlur = () => {
+    setShowResult(false);
+  };
+  const handleClickOutside = useCallback((event: Event) => {
+    if (!wrapperRef?.current?.contains(event.target as Node)) {
+      return handleBlur();
+    }
+  }, []);
+
   useEffect(() => {
     if (textSearch !== "" && data.length > 0) {
       setShowResult(true);
     }
   }, [textSearch, data]);
 
-  const handleGetCityDebounce = useCallback(
-    debounce((v) => onSearch(v), 500),
-    []
+  const handleGetCityDebounce = useMemo(
+    () => debounce(onSearch, 500),
+    [onSearch]
   );
 
   const handleUserInput = (e: { target: HTMLInputElement }) => {
@@ -48,21 +63,13 @@ const InputSearch: React.FC<Props> = ({
     }
   };
 
-  const handleBlur = () => {
-    setShowResult(false);
-  };
-
   useEffect(() => {
     document.addEventListener("click", handleClickOutside, false);
     return () => {
       document.removeEventListener("click", handleClickOutside, false);
     };
-  }, []);
-  const handleClickOutside = (event: Event) => {
-    if (!wrapperRef?.current?.contains(event.target as Node)) {
-      return handleBlur();
-    }
-  };
+  }, [handleClickOutside]);
+
   return (
     <>
       <div
@@ -70,18 +77,27 @@ const InputSearch: React.FC<Props> = ({
         ref={wrapperRef}
       >
         <label htmlFor="addFilter">Search weather </label>
-        <input
-          type="text"
-          className="form-control typeahead-input"
-          id="searchWearther"
-          autoComplete="off"
-          value={textSearch}
-          onChange={handleUserInput}
-          onFocus={handleFocus}
-          placeholder="Search city here..."
-          aria-label="Search city here..."
-          data-testid="searchWeather"
-        />
+        <div>
+          <input
+            type="text"
+            className="form-control typeahead-input"
+            id="searchWearther"
+            autoComplete="off"
+            value={textSearch}
+            onChange={handleUserInput}
+            onFocus={handleFocus}
+            placeholder="Search city here..."
+            aria-label="Search city here..."
+            data-testid="searchWeather"
+          />
+          {loading && (
+            <span
+              className="spinner-border spinner-border-sm input-loading"
+              role="status"
+              aria-hidden="true"
+            ></span>
+          )}
+        </div>
         {showResult && (
           <Suggestion
             data={data}

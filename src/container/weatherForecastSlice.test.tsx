@@ -7,7 +7,6 @@ import weatherReducer, {
   fetchWeatherCityAsync,
 } from "./weatherForecastSlice";
 import axios from "axios";
-import { AsyncThunkAction, configureStore } from "@reduxjs/toolkit";
 jest.mock("axios");
 describe("counter reducer", () => {
   const initialState: WeatherState = {
@@ -59,13 +58,6 @@ describe("counter reducer", () => {
     );
     let state = store.getState().weatherForecast;
 
-    // const createAccountAsyncThunkAction: AsyncThunkAction<{}, {}, {}> =
-    //   fetchCityAsync("San");
-    // const actual = await createAccountAsyncThunkAction(
-    //   dispatch,
-    //   () => {},
-    //   undefined
-    // );
     await store.dispatch(fetchCityAsync("San"));
     expect(axios.get).toBeCalledWith("http://localhost:3001/search/query=San");
     expect(axios.get).toHaveBeenCalledTimes(1);
@@ -101,7 +93,7 @@ describe("counter reducer", () => {
     expect(axios.get).toHaveBeenCalledTimes(1);
     state = store.getState().weatherForecast;
     expect(state.error).toEqual({
-      action: "fetchCityAsync",
+      message: "Can't get information of cities",
       type: "error",
       id: "0-0-0-0-0-0-0-0-0-0",
     });
@@ -786,7 +778,7 @@ describe("counter reducer", () => {
     expect(axios.get).toBeCalledWith("http://localhost:3001/location/2487956");
     state = store.getState().weatherForecast;
     expect(state.error).toEqual({
-      action: "fetchWeatherCityAsync",
+      message: "Can't get information of city weather",
       type: "error",
       id: "0-0-0-0-0-0-0-0-0-0",
     });
