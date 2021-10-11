@@ -1,0 +1,24 @@
+.suggestion-container {
+  max-height: 200px;
+  border-radius: 10px;
+  position: absolute;
+  top: 100%;
+  border: 1px solid #ced4da;
+  z-index: 10;
+  width: 100%;
+}
+.suggestion {
+  cursor: pointer;
+  border-top: 1px solid black;
+}
+.suggestion:hover {
+  background-color: gray;
+}
+.list-group-item:hover {
+  background-color: gray;
+  cursor: pointer;
+}
+.form-group label {
+  float: left;
+  padding-left: 12px;
+}
