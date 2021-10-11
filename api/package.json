@@ -7,13 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
   },
-  "keywords": [
-    "Weather React",
-    "Dark Sky",
-    "Proxy Server",
-    "Serverless API Function"
-  ],
-  "author": "Sai Nikhil",
+ 
+  "author": "Son Truong",
   "license": "MIT",
   "repository": "weather-react-api",
   "dependencies": {

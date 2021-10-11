@@ -1,13 +1,16 @@
-import React from "react";
+import React, { Suspense } from "react";
 import "./App.css";
-import ToastComponent from "./component/toast/toastComponent";
-import WeatherForecast from "./container/weatherForecast";
-
+const ToastComponent = React.lazy(
+  () => import("./component/toast/toastComponent")
+);
+const WeatherForecast = React.lazy(() => import("./container/weatherForecast"));
 function App() {
   return (
     <div className="App">
-      <WeatherForecast />
-      <ToastComponent />
+      <Suspense fallback={<div>Loading...</div>}>
+        <WeatherForecast />
+        <ToastComponent />
+      </Suspense>
     </div>
   );
 }

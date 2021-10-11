@@ -4,8 +4,9 @@ import { LocationDetail, LocationProps } from "../props/types";
 // A mock function to mimic making an async request for data
 export async function fetchCityByText(textSearch = "") {
   try {
+    console.log("aa", process.env.REACT_APP_BE_URL);
     const response = await axios.get<LocationProps[]>(
-      `http://localhost:3001/search/query=${textSearch}`
+      `${process.env.REACT_APP_BE_URL}/search/query=${textSearch}`
     );
     return response.data;
   } catch (error) {
@@ -18,7 +19,7 @@ export async function fetchCityByText(textSearch = "") {
 export async function fetchWeatherCityById(cityId: number) {
   try {
     const response = await axios.get<LocationDetail>(
-      `http://localhost:3001/location/${cityId}`
+      `${process.env.REACT_APP_BE_URL}/location/${cityId}`
     );
     return response.data;
   } catch (error) {
