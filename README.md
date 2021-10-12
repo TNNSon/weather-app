@@ -3,6 +3,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 This Weather App is a small project to get weather in search.
 THis Weather App supports user search city.
+![image](https://user-images.githubusercontent.com/12287251/136886904-a6b9fb2e-fb45-47dd-a01d-732caf2a8f28.png)
 
 ## Installation
 
