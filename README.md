@@ -18,6 +18,7 @@ In the project directory, you can run:
 ### `npm dev`
 
 ![image](https://user-images.githubusercontent.com/12287251/136879992-dc562b6f-24d7-4a3a-88f0-36c0a63448c5.png)
+
 This command will run Frontend and Backend.
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 Backend will run in  [http://localhost:8080](http://localhost:8080)
