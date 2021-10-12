@@ -63,9 +63,9 @@ If you want run one by one service. I have Dockerfile for each service.
 - Backend: in api folder.
   
 
-## What’s Included?
+## Technology
 
-- React, JSX, ES6, TypeScript and Flow syntax support.
+- React, Redux-toolkit, TypeScript, JSX, ES6, .
 - ExpressJS, NodeJS.
 - Dockerfile to support build in multi environment.
 
