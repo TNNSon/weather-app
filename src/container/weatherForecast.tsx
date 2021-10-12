@@ -19,7 +19,7 @@ const WeatherForecast: React.FC = () => {
     dispatch(fetchWeatherCityAsync(value));
   };
   const handleSearch = (textSearch: string) => {
-    dispatch(fetchCityAsync(textSearch));
+    textSearch !== "" && dispatch(fetchCityAsync(textSearch));
   };
 
   return (
