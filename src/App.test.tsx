@@ -11,7 +11,7 @@ test("renders app", () => {
     </Provider>
   );
 
-  expect(queryAllByText("Your weather of")).toHaveLength(0);
+  expect(queryAllByText("Daily Forecast")).toHaveLength(0);
   waitFor(() => {
     expect(getByTestId("searchWeather")).toHaveValue("");
   });

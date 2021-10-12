@@ -73,7 +73,7 @@ const InputSearch: React.FC<Props> = ({
   return (
     <>
       <div
-        className="form-group has-search col-md-6 mx-auto typeahead flex-column position-relative"
+        className="form-group search-input has-search col-md-6 mx-auto typeahead flex-column position-relative "
         ref={wrapperRef}
       >
         <label htmlFor="addFilter">Search weather </label>

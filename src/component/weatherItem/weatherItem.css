@@ -1,5 +1,14 @@
 .card {
   cursor: pointer;
+  border-image: linear-gradient(
+      180deg,
+      hsla(0, 0%, 87.1%, 0) 0,
+      #dedede 25%,
+      #dedede 70%,
+      hsla(0, 0%, 87.1%, 0) 85%,
+      hsla(0, 0%, 87.1%, 0)
+    )
+    1 100%;
 }
 .the-temp {
   color: #1b4de4;
@@ -19,12 +28,14 @@
   font-weight: 300;
 }
 .currentDay .card-title {
-  font-weight: 500;
-  background-color: rgb(128, 128, 128);
+  font-weight: 700;
 }
 .currentDay .the-temp {
   font-weight: 700;
 }
 .card .card-title {
   border-bottom: 1px solid grey;
+}
+.currentDay .card-text {
+  font-weight: 700;
 }

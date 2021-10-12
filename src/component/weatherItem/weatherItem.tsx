@@ -8,12 +8,7 @@ type LocationProps = {
   data: WeatherDay;
 };
 
-const getDayName = (dateStr: string, locale: string = "en-us") => {
-  var date = new Date(dateStr);
-  return date.toLocaleDateString(locale, { weekday: "long" });
-};
-
-const isToday = (date: string) => {
+export const isToday = (date: string) => {
   const someDate = new Date(date);
   const today = new Date();
   return (
@@ -21,6 +16,15 @@ const isToday = (date: string) => {
     someDate.getMonth() === today.getMonth() &&
     someDate.getFullYear() === today.getFullYear()
   );
+};
+
+const getDayName = (dateStr: string, locale: string = "en-us") => {
+  let today = isToday(dateStr);
+  var date = new Date(dateStr);
+  date.toLocaleDateString(locale, { weekday: "long" });
+  return today
+    ? "Today"
+    : date.toLocaleDateString(locale, { weekday: "long", day: "numeric" });
 };
 
 const WeatherItem: React.FC<LocationProps> = ({ data }) => {

@@ -22,7 +22,8 @@
   float: left;
   padding-left: 12px;
 }
-.input-loading {
+
+.search-input .input-loading {
   position: absolute;
   top: 50%;
   left: 95%;

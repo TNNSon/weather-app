@@ -1,7 +1,13 @@
 .weather-list {
-  padding-top: 24px;
+  margin-top: 24px;
+
+  border-radius: 6px;
+  box-shadow: 0 0 12px 0 rgb(0 0 0 / 20%);
 }
 .city-title {
   text-align: justify;
-  padding-left: 12px;
+  padding: 24px 0 0 24px;
+}
+.card-group {
+  padding: 0 24px;
 }

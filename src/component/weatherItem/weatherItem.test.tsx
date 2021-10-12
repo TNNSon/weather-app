@@ -36,7 +36,9 @@ afterEach(() => {
 
 it("Weather Item render", () => {
   const utils = render(<WeatherItem data={initialState} />, container);
-  expect(utils.getByRole("heading", { level: 5 }).textContent).toBe("Tuesday");
+  expect(utils.getByRole("heading", { level: 5 }).textContent).toBe(
+    "10 Tuesday"
+  );
   expect(screen.getByText("Heavy Cloud")).toBeInTheDocument();
   expect(utils.getByTestId("the-temp").textContent).toContain("18°");
   expect(utils.getByTestId("max-temp").textContent).toContain("19");
@@ -47,6 +49,7 @@ it("Weather Item render", () => {
 it("Weather Item render with current day data", () => {
   initialState.applicable_date = new Date().toString();
   const utils = render(<WeatherItem data={initialState} />, container);
+  expect(utils.getByRole("heading", { level: 5 }).textContent).toBe("Today");
   expect(screen.getByText("Heavy Cloud")).toBeInTheDocument();
   expect(utils.getByTestId("the-temp").textContent).toContain("18°");
   expect(utils.getByTestId("max-temp").textContent).toContain("19");
