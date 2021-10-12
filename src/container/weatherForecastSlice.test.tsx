@@ -8,14 +8,7 @@ import weatherReducer, {
 } from "./weatherForecastSlice";
 import axios from "axios";
 jest.mock("axios");
-describe("counter reducer", () => {
-  const initialState: WeatherState = {
-    cities: [],
-    status: "idle",
-    weatherDayList: [],
-    currentWeather: {} as CurrentWeather,
-    error: {} as Toast,
-  };
+describe("weather reducer", () => {
   afterEach(() => {
     jest.restoreAllMocks();
   });
@@ -59,7 +52,7 @@ describe("counter reducer", () => {
     let state = store.getState().weatherForecast;
 
     await store.dispatch(fetchCityAsync("San"));
-    expect(axios.get).toBeCalledWith("http://localhost:3001/search/query=San");
+    expect(axios.get).toBeCalledWith("http://localhost:8080/search/query=San");
     expect(axios.get).toHaveBeenCalledTimes(1);
     state = store.getState().weatherForecast;
     expect(state.cities).toEqual([
@@ -89,7 +82,7 @@ describe("counter reducer", () => {
     );
     let state = store.getState().weatherForecast;
     await store.dispatch(fetchCityAsync("San"));
-    expect(axios.get).toBeCalledWith("http://localhost:3001/search/query=San");
+    expect(axios.get).toBeCalledWith("http://localhost:8080/search/query=San");
     expect(axios.get).toHaveBeenCalledTimes(1);
     state = store.getState().weatherForecast;
     expect(state.error).toEqual({
@@ -274,7 +267,7 @@ describe("counter reducer", () => {
     let state = store.getState().weatherForecast;
 
     await store.dispatch(fetchWeatherCityAsync(2487956));
-    expect(axios.get).toBeCalledWith("http://localhost:3001/location/2487956");
+    expect(axios.get).toBeCalledWith("http://localhost:8080/location/2487956");
     state = store.getState().weatherForecast;
     expect(state.weatherDayList).toEqual([
       {
@@ -614,7 +607,7 @@ describe("counter reducer", () => {
     let state = store.getState().weatherForecast;
 
     await store.dispatch(fetchWeatherCityAsync(2487956));
-    expect(axios.get).toBeCalledWith("http://localhost:3001/location/2487956");
+    expect(axios.get).toBeCalledWith("http://localhost:8080/location/2487956");
     state = store.getState().weatherForecast;
     expect(state.weatherDayList).toEqual([
       {
@@ -775,7 +768,7 @@ describe("counter reducer", () => {
     );
 
     await store.dispatch(fetchWeatherCityAsync(2487956));
-    expect(axios.get).toBeCalledWith("http://localhost:3001/location/2487956");
+    expect(axios.get).toBeCalledWith("http://localhost:8080/location/2487956");
     state = store.getState().weatherForecast;
     expect(state.error).toEqual({
       message: "Can't get information of city weather",

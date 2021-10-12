@@ -28,7 +28,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "server": "node api/index.js",
+    "dev": "concurrently \"npm run start\" \"npm run server\""
   },
   "eslintConfig": {
     "extends": [
@@ -50,6 +52,7 @@
   },
   "devDependencies": {
     "@types/lodash": "^4.14.175",
-    "@types/redux-mock-store": "^1.0.3"
+    "@types/redux-mock-store": "^1.0.3",
+    "concurrently": "^6.3.0"
   }
 }
