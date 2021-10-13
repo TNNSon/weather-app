@@ -14,7 +14,12 @@ Please see the appropriate guide for your environment for choice:
 
 ## Get Started Immediately
 
-In this Weather App, I have Frontend and Backend.
+In this Weather App, I have Frontend and Backend. \
+
+### `npm i`
+Frontend: You use command `npm i` to install package to run. \
+Backend: You use command `cd api && npm i` to install package to run. \
+
 In the project directory, you can run:
 
 ### `npm dev`
