@@ -7,15 +7,15 @@ import React, {
 } from "react";
 import { debounce } from "lodash";
 import Suggestion from "./suggestion";
-import { ItemOption } from "../../props/types";
+import { ItemOption } from "../../ultils/interface";
 import "./inputSearch.css";
 
-type Props = {
+interface Props {
   onSearch: any;
   onChange: Function;
   data: ItemOption[];
   loading: boolean;
-};
+}
 
 const InputSearch: React.FC<Props> = ({
   onChange,

@@ -1,17 +1,17 @@
 import React, { useRef } from "react";
 import "./inputSearch.css";
+import { ItemOption } from "../../ultils/interface";
 
-import { ItemOption } from "../../props/types";
-type Props = {
+interface Props {
   data: ItemOption[] | [];
   show: boolean;
   loading: boolean;
   onChange: Function;
-};
-type ItemProps = {
+}
+interface ItemProps {
   data: ItemOption;
   onChange: Function;
-};
+}
 const SuggestionItem: React.FC<ItemProps> = ({ data, onChange }) => {
   const handleSelect = () => {
     onChange(data.id);

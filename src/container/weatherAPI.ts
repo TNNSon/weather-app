@@ -1,5 +1,5 @@
 import axios from "axios";
-import { LocationDetail, LocationProps } from "../props/types";
+import { LocationDetail, LocationProps } from "../ultils/interface";
 
 // A mock function to mimic making an async request for data
 export async function fetchCityByText(textSearch = "") {

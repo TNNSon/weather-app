@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import WeatherItem from "./weatherItem";
 import "@testing-library/jest-dom/extend-expect";
-import { WeatherDay } from "../../props/types";
+import { WeatherDay } from "../../ultils/types";
 
 let container: any = null;
 let initialState: WeatherDay = {

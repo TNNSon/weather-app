@@ -1,15 +1,6 @@
-type Condition =
-  | "sn"
-  | "sl"
-  | "h"
-  | "t"
-  | "hr"
-  | "lr"
-  | "s"
-  | "hc"
-  | "lc"
-  | "c";
-type WeatherDay = {
+import { Condition } from "./types";
+
+interface WeatherDay {
   id: number;
   weather_state_name: string;
   weather_state_abbr: Condition;
@@ -25,15 +16,16 @@ type WeatherDay = {
   humidity: number;
   visibility: number;
   predictability: number;
-};
-type LocationProps = {
+}
+
+interface LocationProps {
   title: string;
   location_type: string;
   woeid: number;
   latt_long: string;
-};
+}
 
-type LocationDetail = {
+interface LocationDetail {
   consolidated_weather: WeatherDay[];
   time: string;
   sun_rise: string;
@@ -44,22 +36,21 @@ type LocationDetail = {
   woeid: number;
   latt_long: string;
   timezone: string;
-};
+}
 
-type CurrentWeather = {
+interface CurrentWeather {
   time: string;
   sun_rise: string;
   sun_set: string;
   title: string;
   location_type: string;
   data: WeatherDay;
-};
-type ItemOption = {
+}
+interface ItemOption {
   id: number;
   text: string;
-};
+}
 export type {
-  Condition,
   WeatherDay,
   LocationProps,
   LocationDetail,

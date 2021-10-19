@@ -1,9 +1,9 @@
 import React from "react";
-import { Condition } from "../../props/types";
+import { Condition } from "../../ultils/types";
 
-type LocationProps = {
+interface LocationProps {
   type?: Condition | null;
-};
+}
 
 //www.metaweather.com/static/img/weather/sn.svg
 const WeatherIcon: React.FC<LocationProps> = ({ type }) => {

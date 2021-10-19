@@ -1,13 +1,13 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { CurrentWeather, ItemOption, WeatherDay } from "../props/types";
+import { CurrentWeather, ItemOption, WeatherDay } from "../ultils/interface";
 import { RootState } from "../store/store";
 import { fetchCityByText, fetchWeatherCityById } from "./weatherAPI";
 
-export type Toast = {
+export interface Toast {
   message: string;
   type: string;
   id: string;
-};
+}
 function uuid() {
   return crypto.getRandomValues(new Uint32Array(4)).join("-");
 }

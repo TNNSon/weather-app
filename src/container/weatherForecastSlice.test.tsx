@@ -1,5 +1,5 @@
 import { store } from "../store/store";
-import { CurrentWeather } from "../props/types";
+import { CurrentWeather } from "../ultils/types";
 import weatherReducer, {
   WeatherState,
   Toast,

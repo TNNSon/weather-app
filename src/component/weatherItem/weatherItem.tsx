@@ -1,6 +1,6 @@
 import { round } from "lodash";
 import React from "react";
-import { WeatherDay } from "../../props/types";
+import { WeatherDay } from "../../ultils/interface";
 import WeatherIcon from "../weatherIcon/weatherIcon";
 import "./weatherItem.css";
 
