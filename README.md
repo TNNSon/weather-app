@@ -1,19 +1,25 @@
 # Getting Started with Weather App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-This Weather App is a small project to get weather in search.
-THis Weather App supports user search city.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). \
+This Weather App is a small project to get weather in search. \
+This Weather App supports user search city.
 ![image](https://user-images.githubusercontent.com/12287251/136886904-a6b9fb2e-fb45-47dd-a01d-732caf2a8f28.png)
 
 ## Installation
 
 Please see the appropriate guide for your environment for choice:
   - npx comes with npm 5.2+ and higher, see instructions for older npm versions.
+  - Nodejs to support run Backend.
   - docker (support to build image in docker) (optional).
 
 ## Get Started Immediately
 
-In this Weather App, I have Frontend and Backend.
+In this Weather App, I have Frontend and Backend. \
+
+### `npm i`
+Frontend: You use command `npm i` to install package to run. \
+Backend: You use command `cd api && npm i` to install package to run. \
+
 In the project directory, you can run:
 
 ### `npm dev`
@@ -62,9 +68,9 @@ If you want run one by one service. I have Dockerfile for each service.
 - Backend: in api folder.
   
 
-## What’s Included?
+## Technology
 
-- React, JSX, ES6, TypeScript and Flow syntax support.
+- React, Redux-toolkit, TypeScript, JSX, ES6, .
 - ExpressJS, NodeJS.
 - Dockerfile to support build in multi environment.
 
